@@ -33,3 +33,11 @@ Privacy information can be found at https://privacy.microsoft.com/en-us/
 
 Microsoft and any contributors reserve all others rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.
+
+
+## References working ADO Boards + Pipelines integrated with GitHub repo
+- [GitHub Integration](https://learn.microsoft.com/en-us/azure/devops/cross-service/github-integration?view=azure-devops)
+- [Create pipeline with GH repo](https://learn.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Cbrowser)
+- [Build GH repo](https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml)
+- [Link ADO Boards](https://learn.microsoft.com/en-us/azure/devops/boards/github/?view=azure-devops)
+- [Link GH PRs, commits & issues](https://learn.microsoft.com/en-us/azure/devops/boards/github/?view=azure-devops)
