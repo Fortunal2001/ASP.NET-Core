@@ -41,3 +41,8 @@ or trademarks, whether by implication, estoppel or otherwise.
 - [Build GH repo](https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml)
 - [Link ADO Boards](https://learn.microsoft.com/en-us/azure/devops/boards/github/?view=azure-devops)
 - [Link GH PRs, commits & issues](https://learn.microsoft.com/en-us/azure/devops/boards/github/?view=azure-devops)
+
+<br/>
+
+## ADO Boards Integration
+[![Board Status](https://dev.azure.com/kudevworldvs/9e2ffd44-b795-4cf5-8d1e-ab3e7f0385f8/83eeedf5-01e8-4cf0-9de4-76467edeec95/_apis/work/boardbadge/09c837a3-6141-42ac-80c4-fc2dd74a0d6b?columnOptions=1)](https://dev.azure.com/kudevworldvs/9e2ffd44-b795-4cf5-8d1e-ab3e7f0385f8/_boards/board/t/83eeedf5-01e8-4cf0-9de4-76467edeec95/Stories/)
