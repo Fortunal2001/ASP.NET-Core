@@ -1,34 +1,173 @@
-# ASP.NET
-# Build and test ASP.NET projects.
-# Add steps that publish symbols, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cattle Farm Operation Web Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
 
-trigger:
-- master
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-pool:
-  vmImage: 'windows-latest'
+        main {
+            padding: 20px;
+        }
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+        section {
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-steps:
-- task: NuGetToolInstaller@1
+        h2 {
+            margin-top: 0;
+        }
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+        form {
+            display: flex;
+            flex-direction: column;
+        }
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+        input[type="text"],
+        input[type="number"],
+        input[type="password"] {
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cattle Performance Record Web Service</h1>    
+    </header>
+
+    <main>
+        <!-- Authentication Form -->
+        <section id="authentication">
+            <h2>Staff Authentication</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Login">
+            </form>
+        </section>
+
+        <!-- Cattle Performance Recording Form -->
+        <section id="performance-recording" style="display: none;">
+            <h2>Cattle Performance Recording</h2>
+            <form id="performance-form">
+                <label for="tag-number">Tag Number:</label>
+                <input type="text" id="tag-number" name="tag-number" required>
+                <label for="breed">Breed:</label>
+                <input type="text" id="breed" name="breed" required>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+                <!-- Body condition -->
+                <label for="body">Body Condition:</label>
+                <input type="text" id="body" name="body" required><br>
+                <label for="eyes">Eyes Condition:</label>
+                <input type="text" id="eyes" name="eyes" required><br>
+                <label for="ears">Ears Condition:</label>
+                <input type="text" id="ears" name="ears" required><br>           
+
+                <!-- Activity -->
+                <label for="activity">Activity:</label>
+                <input type="text" id="activity" name="activity" required><br>
+                <!-- Feeding and Drinking -->
+                <label for="feeding">Feeding:</label>
+                <input type="text" id="feeding" name="feeding" required><br>          
+
+                <!-- Sucking and Suckling (Calves) -->
+                <label for="sucking-suckling">Sucking and Suckling (Calves):</label>
+                <input type="text" id="sucking-suckling" name="sucking-suckling" required><br>  
+                <!-- Posture -->
+                <label for="posture">Posture:</label>
+                <input type="text" id="posture" name="posture" required><br>       
+
+                <!-- External Parasite -->
+                <label for="external-parasite">External Parasite:</label>
+                <input type="text" id="external-parasite" name="external-parasite" required><br>   
+                <input type="submit" value="Record Performance">       
+                  
+            </form>
+        </section>       
+    </main>
+
+
+    <footer>
+        <p>&copy; 2024 Cattle Performance Record Web Service</p>
+    </footer>
+
+    <script>
+        // JavaScript code for handling form submissions and switching between sections
+
+        // Function to handle login form submission
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Here, you would typically perform authentication logic
+            // For simplicity, let's just show the other sections upon login
+            document.getElementById('authentication').style.display = 'none'; // Hide authentication section
+            document.getElementById('performance-recording').style.display = 'block'; // Show performance recording section
+           
+        });
+
+        // Function to handle performance recording form submission
+        document.getElementById('performance-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Here, you would typically handle recording of cattle performance
+            // For simplicity, let's just log the form data to the console
+            const formData = new FormData(event.target);
+            console.log('Cattle Performance Recorded:', formData);
+
+            // Clear the form after submission (optional)
+            event.target.reset();
+        });
+
+        
+    </script>
+</body>
+</html>
